@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishesh Jaiswal - Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .left {
+            width: 35%;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 40px 30px;
+            min-height: 100vh;
+        }
+        .right {
+            width: 65%;
+            background-color: #ffffff;
+            padding: 40px 30px;
+            min-height: 100vh;
+        }
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #34495e;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #ecf0f1;
+        }
+        .name {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .title {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: #bdc3c7;
+        }
+        .contact {
+            margin-bottom: 30px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .contact-item i {
+            margin-right: 10px;
+            width: 20px;
+        }
+        .section-title {
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #ecf0f1;
+            border-bottom: 1px solid #34495e;
+            padding-bottom: 5px;
+        }
+        .right .section-title {
+            color: #2c3e50;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        .skill-list {
+            list-style: none;
+            padding: 0;
+        }
+        .skill-list li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .summary {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .experience, .education {
+            margin-bottom: 30px;
+        }
+        .job-title {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        .job-details {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+        .job-description {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .education-title {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        .education-details {
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+        .languages, .interests {
+            margin-bottom: 30px;
+        }
+        .languages li, .interests li {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .left, .right {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="profile-pic">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="name">Vishesh Jaiswal</div>
+            <div class="title">Aspiring Web Developer</div>
+            <div class="contact">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Jaipur, Rajasthan, India
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    visheshjayaswal8910@gmail.com
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/vishesh-jaiswal-382249350" style="color: #ecf0f1; text-decoration: none;">LinkedIn Profile</a>
+                </div>
+            </div>
+            <div class="section-title">Skills</div>
+            <ul class="skill-list">
+                <li><strong>Technical Skills:</strong></li>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+                <li>React (Beginner)</li>
+                <li>Responsive Web Design</li>
+                <li>Front-End Development</li>
+                <li><strong>Tools:</strong></li>
+                <li>VS Code</li>
+                <li>Git & GitHub (Basic)</li>
+                <li>Browser DevTools</li>
+            </ul>
+            <div class="section-title">Languages</div>
+            <ul class="skill-list">
+                <li>English – Proficient</li>
+                <li>Hindi – Native</li>
+            </ul>
+            <div class="section-title">Interests</div>
+            <ul class="skill-list">
+                <li>Exploring New Technology</li>
+                <li>Building Web Projects</li>
+                <li>Learning UI/UX Design Trends</li>
+                <li>Watching Tech Content</li>
+            </ul>
+        </div>
+        <div class="right">
+            <div class="section-title">Profile Summary</div>
+            <div class="summary">
+                As a dedicated BCA student with a strong passion for web development, I am building a solid foundation in front-end and full-stack technologies. Proficient in HTML, CSS, and JavaScript, I am currently expanding my skills in React to create dynamic and responsive web applications. My enthusiasm lies in developing real-world projects that solve practical problems, fostering a problem-solving mindset honed through academic and personal coding challenges. With a goal to become a professional full-stack developer, I am eager to learn from experienced teams, contribute innovative solutions, and grow in a collaborative tech environment.
+            </div>
+            <div class="section-title">Experience</div>
+            <div class="experience">
+                <div class="job-title">Student</div>
+                <div class="job-details">Jaipur National University, Jaipur, India | 2024 – Present</div>
+                <div class="job-description">
+                    Pursuing Bachelor of Computer Applications with a focus on programming and web technologies. Actively building academic and personal web development projects to apply theoretical knowledge in practical scenarios. Learning modern development tools and frameworks to stay updated with industry trends. Practicing problem-solving and logical thinking through coding exercises and challenges.
+                </div>
+            </div>
+            <div class="section-title">Education</div>
+            <div class="education">
+                <div class="education-title">Bachelor of Computer Applications (BCA)</div>
+                <div class="education-details">Jaipur National University | 2024 – Present</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
