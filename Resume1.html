@@ -4,211 +4,450 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vishesh Jaiswal - Resume</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
+        /* --- CSS Variables --- */
+        :root {
+            --sidebar-bg: #1e293b;       /* Dark Slate Blue */
+            --sidebar-text: #f8fafc;     /* White/Off-white */
+            --main-bg: #ffffff;          /* Pure White */
+            --text-primary: #1e293b;     /* Dark text for readability */
+            --text-secondary: #64748b;   /* Muted text */
+            --accent-color: #3b82f6;     /* Tech Blue */
+            --section-gap: 2rem;
+            --container-width: 1000px;
+        }
+
+        /* --- Reset & Typography --- */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            box-sizing: border-box;
         }
-        .container {
-            display: flex;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f1f5f9; /* Light grey page background */
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
-        .left {
-            width: 35%;
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            padding: 40px 30px;
-            min-height: 100vh;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s ease;
         }
-        .right {
-            width: 65%;
-            background-color: #ffffff;
-            padding: 40px 30px;
-            min-height: 100vh;
-        }
-        .profile-pic {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background-color: #34495e;
-            margin: 0 auto 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            color: #ecf0f1;
-        }
-        .name {
-            text-align: center;
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-        .title {
-            text-align: center;
-            font-size: 16px;
-            font-weight: 400;
-            margin-bottom: 30px;
-            color: #bdc3c7;
-        }
-        .contact {
-            margin-bottom: 30px;
-        }
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .contact-item i {
-            margin-right: 10px;
-            width: 20px;
-        }
-        .section-title {
-            text-transform: uppercase;
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 15px;
-            color: #ecf0f1;
-            border-bottom: 1px solid #34495e;
-            padding-bottom: 5px;
-        }
-        .right .section-title {
-            color: #2c3e50;
-            border-bottom: 1px solid #ecf0f1;
-        }
-        .skill-list {
+
+        ul {
             list-style: none;
-            padding: 0;
         }
-        .skill-list li {
-            margin-bottom: 8px;
-            font-size: 14px;
+
+        /* --- Layout Container --- */
+        .resume-container {
+            max-width: var(--container-width);
+            margin: 40px auto;
+            background: white;
+            display: grid;
+            grid-template-columns: 320px 1fr; /* Fixed Sidebar | Fluid Content */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            min-height: 1100px;
         }
-        .summary {
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 30px;
+
+        /* --- Sidebar (Left Column) --- */
+        .sidebar {
+            background-color: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
         }
-        .experience, .education {
-            margin-bottom: 30px;
+
+        /* Profile Image */
+        .profile-img-container {
+            text-align: center;
+            margin-bottom: 1rem;
         }
-        .job-title {
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255,255,255,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .sidebar-name {
+            font-size: 1.8rem;
             font-weight: 700;
-            font-size: 16px;
-            margin-bottom: 5px;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+            color: #fff;
         }
-        .job-details {
-            font-size: 14px;
-            color: #7f8c8d;
+
+        .sidebar-title {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* Sidebar Sections */
+        .sidebar-section h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(255,255,255,0.15);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.2rem;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* Contact Info */
+        .contact-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        .contact-list i {
+            color: var(--accent-color);
+            margin-right: 12px;
+            margin-top: 4px;
+            width: 16px;
+            text-align: center;
+        }
+
+        .contact-list a:hover {
+            color: white;
+        }
+
+        /* Skills Tags */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: rgba(255,255,255,0.1);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .skill-subtitle {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: #94a3b8;
+            margin-bottom: 0.8rem;
+            margin-top: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Languages */
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+
+        /* Hobbies */
+        .hobbies-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        .hobbies-list li::before {
+            content: '•';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* --- Main Content (Right Column) --- */
+        .main-content {
+            padding: 50px 40px;
+            background-color: var(--main-bg);
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .section-title i {
+            margin-right: 15px;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: #e2e8f0;
+            margin-left: 20px;
+        }
+
+        /* Summary */
+        .summary-text {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        /* Timeline (Experience/Education) */
+        .timeline-item {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 2rem;
+            border-left: 2px solid #e2e8f0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px var(--accent-color);
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .timeline-subtitle {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin: 4px 0;
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: #64748b;
+            font-style: italic;
             margin-bottom: 10px;
+            display: block;
         }
-        .job-description {
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 15px;
+
+        .timeline-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
         }
-        .education-title {
-            font-weight: 700;
-            font-size: 16px;
-            margin-bottom: 5px;
+
+        .timeline-desc ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-top: 8px;
         }
-        .education-details {
-            font-size: 14px;
-            color: #7f8c8d;
+        
+        .timeline-desc li {
+            margin-bottom: 4px;
         }
-        .languages, .interests {
-            margin-bottom: 30px;
-        }
-        .languages li, .interests li {
-            margin-bottom: 8px;
-            font-size: 14px;
-        }
+
+        /* --- Print & Responsive --- */
         @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-            .left, .right {
+            .resume-container {
+                grid-template-columns: 1fr;
+                margin: 0;
                 width: 100%;
+                box-shadow: none;
+            }
+            .sidebar {
+                padding: 30px 20px;
+            }
+            .main-content {
+                padding: 30px 20px;
+            }
+            .section-title::after {
+                display: none;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .resume-container {
+                margin: 0;
+                box-shadow: none;
+                width: 100%;
+                max-width: 100%;
+                grid-template-columns: 300px 1fr;
+            }
+            /* Ensures background colors print */
+            .sidebar {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="left">
-            <div class="profile-pic">
-                <i class="fas fa-user"></i>
+
+    <div class="resume-container">
+        
+        <!-- LEFT COLUMN: SIDEBAR -->
+        <aside class="sidebar">
+            
+            <!-- Profile -->
+            <div class="profile-img-container">
+                <img src="vishesh linkedin.jpeg" alt="Vishesh Jaiswal" class="profile-img">
+                <h1 class="sidebar-name">Vishesh Jaiswal</h1>
+                <p class="sidebar-title">Aspiring Web Developer</p>
             </div>
-            <div class="name">Vishesh Jaiswal</div>
-            <div class="title">Aspiring Web Developer</div>
-            <div class="contact">
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    Jaipur, Rajasthan, India
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    visheshjayaswal8910@gmail.com
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <a href="https://www.linkedin.com/in/vishesh-jaiswal-382249350" style="color: #ecf0f1; text-decoration: none;">LinkedIn Profile</a>
-                </div>
+
+            <!-- Contact -->
+            <div class="sidebar-section">
+                <h3>Contact</h3>
+                <ul class="contact-list">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Jaipur, Rajasthan, India</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:visheshjayaswal82@gmail.com">visheshjayaswal82@gmail.com</a>
+                    </li>
+                    <li>
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/vishesh-jaiswal-382249350" target="_blank">linkedin.com/in/vishesh-jaiswal</a>
+                    </li>
+                    <li>
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/vishesh7737" target="_blank">github.com/vishesh7737</a>
+                    </li>
+                </ul>
             </div>
-            <div class="section-title">Skills</div>
-            <ul class="skill-list">
-                <li><strong>Technical Skills:</strong></li>
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>JavaScript</li>
-                <li>React (Beginner)</li>
-                <li>Responsive Web Design</li>
-                <li>Front-End Development</li>
-                <li><strong>Tools:</strong></li>
-                <li>VS Code</li>
-                <li>Git & GitHub (Basic)</li>
-                <li>Browser DevTools</li>
-            </ul>
-            <div class="section-title">Languages</div>
-            <ul class="skill-list">
-                <li>English – Proficient</li>
-                <li>Hindi – Native</li>
-            </ul>
-            <div class="section-title">Interests</div>
-            <ul class="skill-list">
-                <li>Exploring New Technology</li>
-                <li>Building Web Projects</li>
-                <li>Learning UI/UX Design Trends</li>
-                <li>Watching Tech Content</li>
-            </ul>
-        </div>
-        <div class="right">
-            <div class="section-title">Profile Summary</div>
-            <div class="summary">
-                As a dedicated BCA student with a strong passion for web development, I am building a solid foundation in front-end and full-stack technologies. Proficient in HTML, CSS, and JavaScript, I am currently expanding my skills in React to create dynamic and responsive web applications. My enthusiasm lies in developing real-world projects that solve practical problems, fostering a problem-solving mindset honed through academic and personal coding challenges. With a goal to become a professional full-stack developer, I am eager to learn from experienced teams, contribute innovative solutions, and grow in a collaborative tech environment.
-            </div>
-            <div class="section-title">Experience</div>
-            <div class="experience">
-                <div class="job-title">Student</div>
-                <div class="job-details">Jaipur National University, Jaipur, India | 2024 – Present</div>
-                <div class="job-description">
-                    Pursuing Bachelor of Computer Applications with a focus on programming and web technologies. Actively building academic and personal web development projects to apply theoretical knowledge in practical scenarios. Learning modern development tools and frameworks to stay updated with industry trends. Practicing problem-solving and logical thinking through coding exercises and challenges.
+
+            <!-- Skills -->
+            <div class="sidebar-section">
+                <h3>Skills</h3>
+                
+                <div class="skill-subtitle">Technical</div>
+                <div class="skills-grid">
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">React (Beginner)</span>
+                    <span class="skill-tag">Responsive Design</span>
+                    <span class="skill-tag">Front-End Dev</span>
+                </div>
+
+                <div class="skill-subtitle">Tools</div>
+                <div class="skills-grid">
+                    <span class="skill-tag">VS Code</span>
+                    <span class="skill-tag">Git & GitHub</span>
+                    <span class="skill-tag">Browser DevTools</span>
                 </div>
             </div>
-            <div class="section-title">Education</div>
-            <div class="education">
-                <div class="education-title">Bachelor of Computer Applications (BCA)</div>
-                <div class="education-details">Jaipur National University | 2024 – Present</div>
+
+            <!-- Languages -->
+            <div class="sidebar-section">
+                <h3>Languages</h3>
+                <div class="language-item">
+                    <span>English</span>
+                    <span style="color:var(--accent-color)">Proficient</span>
+                </div>
+                <div class="language-item">
+                    <span>Hindi</span>
+                    <span style="color:var(--accent-color)">Native</span>
+                </div>
             </div>
-        </div>
+
+            <!-- Interests -->
+            <div class="sidebar-section">
+                <h3>Interests</h3>
+                <ul class="hobbies-list">
+                    <li>Exploring New Technology</li>
+                    <li>Building Web Projects</li>
+                    <li>Learning UI/UX Design</li>
+                    <li>Watching Tech Content</li>
+                </ul>
+            </div>
+
+        </aside>
+
+        <!-- RIGHT COLUMN: MAIN CONTENT -->
+        <main class="main-content">
+
+            <!-- Profile Summary -->
+            <section class="section">
+                <h2 class="section-title"><i class="fas fa-user"></i> Profile</h2>
+                <p class="summary-text">
+                    Motivated BCA student with a strong passion for Web Development and a focus on Front-End and Full Stack technologies. Possessing a solid foundation in HTML, CSS, and JavaScript, I am currently expanding my expertise by learning React. Dedicated to building real-world projects that solve problems, I combine a problem-solving mindset with a drive to become a professional Full Stack Developer. Eager to apply my skills, learn continuously, and contribute effectively to dynamic tech teams.
+                </p>
+            </section>
+
+            <!-- Experience -->
+            <section class="section">
+                <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
+                
+                <div class="timeline-item">
+                    <h3 class="timeline-title">Student</h3>
+                    <div class="timeline-subtitle">Jaipur National University</div>
+                    <span class="timeline-date">Jaipur, India | 2024 – Present</span>
+                    <div class="timeline-desc">
+                        <ul>
+                            <li>Pursuing a Bachelor of Computer Applications (BCA) with a keen focus on programming logic and modern web technologies.</li>
+                            <li>Actively building academic and personal web development projects to apply theoretical knowledge.</li>
+                            <li>Learning and utilizing modern development tools, frameworks, and version control systems.</li>
+                            <li>Practicing complex problem-solving and logical thinking through competitive coding and algorithm challenges.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section class="section">
+                <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+                
+                <div class="timeline-item">
+                    <h3 class="timeline-title">Bachelor of Computer Applications (BCA)</h3>
+                    <div class="timeline-subtitle">Jaipur National University</div>
+                    <span class="timeline-date">2024 – Present</span>
+                    <div class="timeline-desc">
+                        <p>Currently undertaking undergraduate studies in computer science applications.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
     </div>
+
 </body>
 </html>
